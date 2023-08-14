@@ -41,7 +41,7 @@ func GetContextEnvVars(ownerCtx context.Context) []v1.EnvVar {
 		)
 	}
 
-	if taskId := contextutils.Value(ownerCtx, contextutils.ExecIDKey); taskId != "" {
+	if taskId := contextutils.Value(ownerCtx, contextutils.TaskIDKey); taskId != "" {
 		envVars = append(envVars,
 			v1.EnvVar{
 				Name:  "NEW_FLYTE_INTERNAL_TASK_ID",
@@ -50,7 +50,7 @@ func GetContextEnvVars(ownerCtx context.Context) []v1.EnvVar {
 		)
 	}
 
-	if nodeId := contextutils.Value(ownerCtx, contextutils.ExecIDKey); nodeId != "" {
+	if nodeId := contextutils.Value(ownerCtx, contextutils.NodeIDKey); nodeId != "" {
 		envVars = append(envVars,
 			v1.EnvVar{
 				Name:  "NEW_FLYTE_INTERNAL_NODE_ID",
