@@ -69,6 +69,10 @@ func GetExecutionEnvVars(id pluginsCore.TaskExecutionID) []v1.EnvVar {
 			Name:  "FLYTE_ATTEMPT_NUMBER",
 			Value: attemptNumber,
 		},
+		{
+			Name:  "FLYTE_INTERNAL_GENERATED_NAME",
+			Value: id.GetGeneratedName(),
+		},
 		// TODO: Fill in these
 		// {
 		// 	Name:  "FLYTE_INTERNAL_EXECUTION_WORKFLOW",
